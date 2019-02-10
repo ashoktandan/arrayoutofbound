@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    int counter = 5;
+}
+<div class="">
+    <div class="row flex-center">
+        <div class="col-8 col">
+                <h3>Popular this week:</h3>
+                <div class="cards">
+
+                    @foreach (var post in (Model as IEnumerable<Post>).Take(5).Reverse())
+    {
+                <div class="cardWrapper" data-id="@post.Id">
+                    <div class="card cardheight">
+                        <img src="@post.PostImageURL" alt="Card example image">
+
+                        <div class="card-body">
+                            <div class="trends">
+                                <h4 class="card-title uppercase">@counter. @post.PostTitle</h4>
+                                <h5 class="card-subtitle capital">@post.PostSubTitle</h5>
+                                <p class="card-text">@Html.Raw(@post.PostContent)</p>
+                            </div>
+                            <div class="row margin-top margin-bottom-none">
+                                <button><a href="/Home/post?postid=@post.Id">more ...</a></button>
+                                <p class="margin-left-large">Posted on: @post.PostCreatedOn.ToShortDateString()</p>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                        counter--;
+                    }
+                </div>
+
+
+            <h3>Recent Posts:</h3>
+            <div id="articleContainer">
+                @foreach (var post in Model)
+    {
+                <article class="article border margin-bottom-small padding">
+                    <div class="row">
+                        <div class="col col-6">
+                            <h3 class="article-title uppercase"><a href="">@post.PostTitle</a></h3>
+                            <h5 class="article-meta capital">@post.PostSubTitle</h5>
+                            <p class="article-meta">Written by <a href="#">Super User</a></p>
+                            <p class="text-lead"> @Html.Raw(@post.PostContent)</p>
+                            <p>Posted on: @post.PostCreatedOn.ToShortDateString()</p>
+
+                        </div>
+                        <div class="col col-6">
+                            <img src="@post.PostImageURL" alt="Card example image">
+                            <div class="row margin-large">
+                                @*<button data-id="@post.Id"><a href="/Home/delete?postid=@post.Id">delete</a></button>*@
+                                <button data-id="@post.Id"><a href="/Home/post?postid=@post.Id">Read More</a></button>
+                                <button>5 Comments</button>
+                            </div>
+                        </div>
+                    </div>
+</article>
+
+}
+            </div>
+
+        </div>
+
+        <div class="col-4 col child-borders">
+            <h3>Trending Posts:</h3>
+            @foreach (var post in ViewBag.top5posts as IEnumerable<Post>)
+    {
+        <div class="card" style="width: 100%;margin:5px;">
+            <div class="card-body">
+                <div class="trends">
+                    <h4 class="card-title uppercase">@post.PostTitle</h4>
+                    <h5 class="card-subtitle capital">@post.PostSubTitle</h5>
+                    <p class="card-text">@Html.Raw(@post.PostContent)</p>
+                </div>
+
+                <div class="row margin-top-large">
+                    <button><a href="/Home/post?postid=@post.Id">Read More...</a></button>
+                    <p class="margin-left-large">Posted on: @post.PostCreatedOn.ToShortDateString()</p>
+                </div>
+            </div>
+        </div>
+}
+
+        </div>
+        </div>
+</div>

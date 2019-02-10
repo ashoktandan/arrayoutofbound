@@ -1,0 +1,26 @@
+﻿@model Post
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="paper container border">
+    <article class=" margin-bottom-small padding" style="height:100%;">
+        <div class="row">
+            <div class="col col-12">
+                <h2 class="article-title uppercase"><a href="">@Model.PostTitle</a></h2>
+                <h4 class="article-meta capital">@Model.PostSubTitle</h4>
+                <p class="article-meta">Written by <a href="#">Super User</a></p>
+                <img src="@Model.PostImageURL" alt="Card example image" class="border" style="width:100%;">
+
+                <p class="text-lead"> @Html.Raw(@Model.PostContent)</p>
+                <p>Posted on: @Model.PostCreatedOn.ToShortDateString()</p>
+
+                <div class="row margin-large">
+                    <button>5 Comments</button>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+

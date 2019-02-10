@@ -1,0 +1,74 @@
+﻿
+
+.ql-toolbar,#editor,.ql-editor,.card {
+    border: 2px solid #41403e !important;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+}
+    .ql-editor{
+        min-height:5rem;
+    }
+
+    .cards {
+        display: flex;
+        align-content: center;
+        max-width: 40rem;
+    }
+
+.cardWrapper {
+    overflow: hidden;
+}
+    .cardWrapper img{
+        max-height:13rem;
+        min-width:100%;
+    }
+    .cardWrapper:last-child, .cardWrapper:hover {
+        overflow: visible;
+    }
+    .cardWrapper:hover {
+        /*transform: scale(2,2);*/
+        transition: width 2s;
+        transition-timing-function: linear;
+    }
+        .card {
+            width: 10em;
+            min-width: 10em;
+            /*height: 20em;*/
+            border-bottom-left-radius: 15px 255px;
+            border-bottom-right-radius: 225px 15px;
+            border-top-left-radius: 255px 15px;
+            border-top-right-radius: 15px 225px;
+            /*display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;*/
+        }
+        .hide{
+            display:none;
+        }
+        .show{
+            display:inline-block;
+        }
+.uppercase {
+    text-transform: uppercase;
+}
+.capital {
+    text-transform: capitalize;
+}
+.article {
+    overflow: auto;
+    max-height: 30rem;
+}
+.cardheight {
+    width: 20rem;
+}
+    .cardheight .trends {
+        max-height: 10rem;
+        overflow: auto;
+    }
+.trends {
+    max-height: 12rem;
+    overflow: auto;
+}

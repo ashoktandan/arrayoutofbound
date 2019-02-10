@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+
+<div class="container  padding-small">
+
+    <div id="notification" class="hide">
+        <input class="alert-state" id="alert-notification" type="checkbox">
+        <div class="alert alert-success dismissible">
+            <p> </p>
+            <label class="btn-close" for="alert-notification">X</label>
+        </div>
+    </div>
+    <h3>Write a post</h3>
+
+    <form id="writePost">
+        <div class="row border">
+            <div class="col sm-4">
+                <div class="form-group">
+                    <label for="paperInputs2">Post Title</label>
+                    <input class="input-block" type="text" id="PostTitle" autofocus>
+                </div>
+            </div>
+            <div class="col sm-8">
+                <div class="form-group">
+                    <label for="paperInputs3">Post SubTitle</label>
+                    <input class="input-block" type="text" id="PostSubTitle">
+                </div>
+            </div>
+            <div class="col sm-12">
+                <div class="form-group">
+                    <label for="paperInputs3">Post Image URL</label>
+                    <input class="input-block" type="url" id="PostImageURL">
+                </div>
+            </div>
+            <div class="col sm-12">
+                <div class="form-group">
+                    <label for="paperInputs3">Post Content</label>
+                    <div id="editor" class="input-block">
+                        <p><br></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col sm-12">
+                <button>Post</button>
+            </div>
+        </div>
+        </form>
+
+
+</div>
+
+
+<!-- Initialize Quill editor -->
+<script>
+    var toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  ['blockquote', 'code-block'],
+
+  [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+  [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+  [{ 'direction': 'rtl' }],                         // text direction
+
+  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+
+  ['clean']                                         // remove formatting button
+];
+
+var quill = new Quill('#editor', {
+  modules: {
+    toolbar: toolbarOptions
+  },
+  theme: 'snow'
+});
+
+</script>
